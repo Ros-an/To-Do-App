@@ -1,16 +1,14 @@
 import React, { useState } from "react";
 import ItemList from "./ItemList";
+import InputField from "./InputField";
+
 const App = () => {
-  const [value, setValue] = useState("");
   const [items, setItem] = useState([]);
 
-  const handleChange = (event) => {
-    const newValue = event.target.value;
-    setValue(newValue);
-  };
-  const handleClick = () => {
-    setItem([...items, value]);
-    setValue(" ");
+  const addItem = (inputText) => {
+    setItem((prevValue) => {
+      return [...prevValue, inputText];
+    });
   };
 
   const deleteItem = (id) => {
@@ -25,24 +23,18 @@ const App = () => {
         <div className="heading">
           <h1>To-Do</h1>
         </div>
-        <div className="form">
-          <input type="text" onChange={handleChange} value={value} />
-          <button className="add" onClick={handleClick}>
-            <span> Add </span>
-          </button>
-        </div>
+        <InputField addFun={addItem} />
+
         <div>
           <ul>
-            {items.map((item, index) => {
-              return (
-                <ItemList
-                  key={index}
-                  text={item}
-                  id={index}
-                  onChecked={deleteItem}
-                />
-              );
-            })}
+            {items.map((item, index) => (
+              <ItemList
+                key={index}
+                text={item}
+                id={index}
+                onChecked={deleteItem}
+              />
+            ))}
           </ul>
         </div>
       </div>
@@ -51,6 +43,3 @@ const App = () => {
 };
 
 export default App;
-{
-  /* <button className="remove-btn">x</button> */
-}
