@@ -50,7 +50,7 @@ body {
   margin-bottom: 20px;
 }
 
-button {
+.add {
   padding: 0;
   border: none;
   font-family: "Quicksand", cursive;
@@ -60,7 +60,7 @@ button {
   outline: none;
   cursor: pointer;
 }
-button:active {
+.add:active {
   background-color: white;
 }
 
@@ -78,3 +78,13 @@ li {
   position: relative;
   padding: 0.5rem;
 }
+/* ul {
+  display: flex;
+  justify-content: space-between;
+}
+.remove-btn {
+  background: #f1f5f8;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+} */
