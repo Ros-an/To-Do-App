@@ -1,9 +1,9 @@
 import React from "react";
 
-const ItemList = (props) => {
+const ItemList = (prop) => {
   return (
-    <div onClick={() => props.onChecked(props.id)}>
-      <li>{props.text}</li>
+    <div onClick={() => prop.onChecked(prop.id)}>
+      <li>{prop.text}</li>
     </div>
   );
 };
