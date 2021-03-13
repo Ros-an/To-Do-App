@@ -15,7 +15,7 @@ const InputField = (prop) => {
         disabled={!inputText}
         onClick={() => {
           prop.addFun(inputText);
-          setInputText(" ");
+          setInputText("");
         }}
       >
         <span> Add </span>
