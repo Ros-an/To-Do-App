@@ -12,6 +12,7 @@ const InputField = (prop) => {
       <input type="text" onChange={handleChange} value={inputText} />
       <button
         className="add"
+        disabled={!inputText}
         onClick={() => {
           prop.addFun(inputText);
           setInputText(" ");
