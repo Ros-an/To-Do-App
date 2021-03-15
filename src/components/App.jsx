@@ -1,9 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ItemList from "./ItemList";
 import InputField from "./InputField";
 
+const getListData = () => {
+  let list = localStorage.getItem("list");
+  // console.log("empty", list);
+  if (list) {
+    return JSON.parse(localStorage.getItem("list"));
+  } else {
+    return [];
+  }
+};
+
 const App = () => {
-  const [items, setItem] = useState([]);
+  const [items, setItem] = useState(getListData());
 
   const addItem = (inputText) => {
     setItem((prevValue) => {
@@ -17,6 +27,9 @@ const App = () => {
     });
   };
 
+  useEffect(() => {
+    localStorage.setItem("list", JSON.stringify(items));
+  }, [items]);
   return (
     <>
       <div className="container">
